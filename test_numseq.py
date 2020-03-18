@@ -58,7 +58,8 @@ class TestNumseq(unittest.TestCase):
         self.assertIsInstance(fib, types.ModuleType, fib)
         # just test first 30 terms
         for n, f in enumerate(fibs):
-            self.assertEqual(fib.fib(n), fibs[n], 'The Fibonacci terms are incorrect')
+            self.assertEqual(fib.fib(n), fibs[n],
+                             'The Fibonacci terms are incorrect')
 
     # def test_fib_performance(self):
     #     """Test speed performance of fibonacci algorithm"""
@@ -70,14 +71,16 @@ class TestNumseq(unittest.TestCase):
         geo = numseq_importer('geo')
         self.assertIsInstance(geo, types.ModuleType, geo)
         for n in range(-1000, 1000):
-            self.assertEqual(geo.square(n), n*n, 'The square terms are incorrect')
+            self.assertEqual(geo.square(n), n*n,
+                             'The square termsare incorrect')
 
     def test_cube(self):
         """test importability and correctness of cube terms"""
         geo = numseq_importer('geo')
         self.assertIsInstance(geo, types.ModuleType, geo)
         for n in range(-1000, 1000):
-            self.assertEqual(geo.cube(n), n**3, 'The cube terms are incorrect')
+            self.assertEqual(geo.cube(n), n**3,
+                             'The cube terms are incorrect')
 
     def test_triangle(self):
         """Test importability and correctness of triangular number terms"""
@@ -94,9 +97,11 @@ class TestNumseq(unittest.TestCase):
 
         for n in range(max(primes)):
             if n in primes:
-                self.assertTrue(prime.is_prime(n), str(n) + ' is a prime number')
+                self.assertTrue(prime.is_prime(n), str(n)
+                                + ' is a prime number')
             else:
-                self.assertFalse(prime.is_prime(n), str(n) + ' is NOT a prime number')
+                self.assertFalse(prime.is_prime(n), str(n)
+                                 + ' is NOT a prime number')
 
         self.assertTrue(prime.is_prime(999983), '999983 is prime')
         self.assertFalse(prime.is_prime(999981), '999981 is not prime')
@@ -131,7 +136,8 @@ class TestCodeQuality(unittest.TestCase):
             ).repeat(number=1, repeat=1)[0]
         hint = (
             'The primes(n) function took {} seconds to run,\n'
-            'which exceeds the allowed O(n) threshold of 1.5 seconds'.format(prime_time)
+            'which exceeds the allowed O(n) threshold of 1.5 seconds'
+            .format(prime_time)
             )
         self.assertLessEqual(prime_time, 1.5, hint)
 
